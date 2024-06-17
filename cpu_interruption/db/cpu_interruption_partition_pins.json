@@ -1,0 +1,141 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Segout[27]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[26]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[25]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[24]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[23]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[22]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[21]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[20]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[19]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[18]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[17]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[16]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[15]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[14]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[13]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[12]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[11]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[10]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[9]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[8]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Segout[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Pol",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "Reset",
+					"strict" : false
+				},
+				{
+					"name" : "IRQ1",
+					"strict" : false
+				},
+				{
+					"name" : "IRQ0",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

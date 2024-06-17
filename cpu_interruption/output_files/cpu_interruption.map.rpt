@@ -1,0 +1,621 @@
+Analysis & Synthesis report for cpu_interruption
+Sat Jun 15 19:39:28 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux
+ 12. Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux1
+ 13. Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|SignExtender:extender
+ 14. Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux2
+ 15. Parameter Settings for User Entity Instance: CPUInterruption:cpu|SignExtender:extender
+ 16. Port Connectivity Checks: "CPUInterruption:cpu|RegisterPSR:PSR"
+ 17. Port Connectivity Checks: "CPUInterruption:cpu"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jun 15 19:39:28 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; cpu_interruption                            ;
+; Top-level Entity Name              ; top_level_interruptions                     ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 5,059                                       ;
+;     Total combinational functions  ; 2,713                                       ;
+;     Dedicated logic registers      ; 2,646                                       ;
+; Total registers                    ; 2646                                        ;
+; Total pins                         ; 33                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                   ;
++------------------------------------------------------------------+-------------------------+--------------------+
+; Option                                                           ; Setting                 ; Default Value      ;
++------------------------------------------------------------------+-------------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G          ;                    ;
+; Top-level entity name                                            ; top_level_interruptions ; cpu_interruption   ;
+; Family name                                                      ; MAX 10                  ; Cyclone V          ;
+; Use smart compilation                                            ; Off                     ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                      ; On                 ;
+; Enable compact report table                                      ; Off                     ; Off                ;
+; Restructure Multiplexers                                         ; Auto                    ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                     ; Off                ;
+; Preserve fewer node names                                        ; On                      ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable                  ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001            ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993               ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto                    ; Auto               ;
+; Safe State Machine                                               ; Off                     ; Off                ;
+; Extract Verilog State Machines                                   ; On                      ; On                 ;
+; Extract VHDL State Machines                                      ; On                      ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                     ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000                    ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                     ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                      ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                      ; On                 ;
+; Parallel Synthesis                                               ; On                      ; On                 ;
+; DSP Block Balancing                                              ; Auto                    ; Auto               ;
+; NOT Gate Push-Back                                               ; On                      ; On                 ;
+; Power-Up Don't Care                                              ; On                      ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                     ; Off                ;
+; Remove Duplicate Registers                                       ; On                      ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                     ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                     ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                     ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                     ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                     ; Off                ;
+; Ignore SOFT Buffers                                              ; On                      ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                     ; Off                ;
+; Optimization Technique                                           ; Balanced                ; Balanced           ;
+; Carry Chain Length                                               ; 70                      ; 70                 ;
+; Auto Carry Chains                                                ; On                      ; On                 ;
+; Auto Open-Drain Pins                                             ; On                      ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                     ; Off                ;
+; Auto ROM Replacement                                             ; On                      ; On                 ;
+; Auto RAM Replacement                                             ; On                      ; On                 ;
+; Auto DSP Block Replacement                                       ; On                      ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto                    ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                    ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                      ; On                 ;
+; Strict RAM Replacement                                           ; Off                     ; Off                ;
+; Allow Synchronous Control Signals                                ; On                      ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                     ; Off                ;
+; Auto RAM Block Balancing                                         ; On                      ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                     ; Off                ;
+; Auto Resource Sharing                                            ; Off                     ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                     ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                     ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                     ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                      ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                     ; Off                ;
+; Timing-Driven Synthesis                                          ; On                      ; On                 ;
+; Report Parameter Settings                                        ; On                      ; On                 ;
+; Report Source Assignments                                        ; On                      ; On                 ;
+; Report Connectivity Checks                                       ; On                      ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                     ; Off                ;
+; Synchronization Register Chain Length                            ; 2                       ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation      ; Normal compilation ;
+; HDL message level                                                ; Level2                  ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                     ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                    ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                    ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                     ; 100                ;
+; Clock MUX Protection                                             ; On                      ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                     ; Off                ;
+; Block Design Naming                                              ; Auto                    ; Auto               ;
+; SDC constraint protection                                        ; Off                     ; Off                ;
+; Synthesis Effort                                                 ; Auto                    ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                      ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                     ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium                  ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto                    ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                      ; On                 ;
++------------------------------------------------------------------+-------------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++-----------------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                          ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                              ; Library ;
++-----------------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
+; ../src/instruction_memory_interruptons.vhd                ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/instruction_memory_interruptons.vhd                ;         ;
+; ../src/vic.vhd                                            ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/vic.vhd                                            ;         ;
+; ../src/unite_de_traitement.vhd                            ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd                            ;         ;
+; ../src/unite_de_gestion_des_instructions_interruption.vhd ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/unite_de_gestion_des_instructions_interruption.vhd ;         ;
+; ../src/ual_32bits.vhd                                     ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/ual_32bits.vhd                                     ;         ;
+; ../src/top_level_interruptions.vhd                        ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/top_level_interruptions.vhd                        ;         ;
+; ../src/sign_extender.vhd                                  ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/sign_extender.vhd                                  ;         ;
+; ../src/registre_PSR.vhd                                   ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/registre_PSR.vhd                                   ;         ;
+; ../src/register_bank.vhd                                  ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/register_bank.vhd                                  ;         ;
+; ../src/mux2v1_gen.vhd                                     ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/mux2v1_gen.vhd                                     ;         ;
+; ../src/decodeur_interruption.vhd                          ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/decodeur_interruption.vhd                          ;         ;
+; ../src/decodeur_7seg.vhd                                  ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/decodeur_7seg.vhd                                  ;         ;
+; ../src/data_memory.vhd                                    ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/data_memory.vhd                                    ;         ;
+; ../src/cpu_interruption.vhd                               ; yes             ; User VHDL File  ; C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd                               ;         ;
++-----------------------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 5,059     ;
+;                                             ;           ;
+; Total combinational functions               ; 2713      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 2288      ;
+;     -- 3 input functions                    ; 139       ;
+;     -- <=2 input functions                  ; 286       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 2619      ;
+;     -- arithmetic mode                      ; 94        ;
+;                                             ;           ;
+; Total registers                             ; 2646      ;
+;     -- Dedicated logic registers            ; 2646      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 33        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; Clk~input ;
+; Maximum fan-out                             ; 2646      ;
+; Total fan-out                               ; 20603     ;
+; Average fan-out                             ; 3.80      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------+---------------------------------------+--------------+
+; Compilation Hierarchy Node                        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                              ; Entity Name                           ; Library Name ;
++---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------+---------------------------------------+--------------+
+; |top_level_interruptions                          ; 2713 (0)            ; 2646 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |top_level_interruptions                                                                                         ; top_level_interruptions               ; work         ;
+;    |CPUInterruption:cpu|                          ; 2657 (0)            ; 2646 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu                                                                     ; CPUInterruption                       ; work         ;
+;       |DecoderInterruption:dcd|                   ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|DecoderInterruption:dcd                                             ; DecoderInterruption                   ; work         ;
+;       |RegisterPSR:PSR|                           ; 3 (3)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|RegisterPSR:PSR                                                     ; RegisterPSR                           ; work         ;
+;       |UniteDeTraitement:UDT|                     ; 2454 (0)            ; 2576 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT                                               ; UniteDeTraitement                     ; work         ;
+;          |DataMemory:memory|                      ; 264 (264)           ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory                             ; DataMemory                            ; work         ;
+;          |Multiplexer:mux2|                       ; 1430 (1430)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux2                              ; Multiplexer                           ; work         ;
+;          |Multiplexer:mux|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux                               ; Multiplexer                           ; work         ;
+;          |RegisterBank:Registres|                 ; 676 (676)           ; 512 (512)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterBank:Registres                        ; RegisterBank                          ; work         ;
+;          |RegisterPSR:RegAff_comp|                ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterPSR:RegAff_comp                       ; RegisterPSR                           ; work         ;
+;          |UAL_32bits:UAL|                         ; 77 (77)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|UAL_32bits:UAL                                ; UAL_32bits                            ; work         ;
+;       |UniteGestionInstructionsInterruptions:UGI| ; 176 (116)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI                           ; UniteGestionInstructionsInterruptions ; work         ;
+;          |instruction_memory_IRQ:IM|              ; 60 (60)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI|instruction_memory_IRQ:IM ; instruction_memory_IRQ                ; work         ;
+;       |VIC:VIC|                                   ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|CPUInterruption:cpu|VIC:VIC                                                             ; VIC                                   ; work         ;
+;    |SEVEN_SEG:dcd_7seg_1|                         ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|SEVEN_SEG:dcd_7seg_1                                                                    ; SEVEN_SEG                             ; work         ;
+;    |SEVEN_SEG:dcd_7seg_2|                         ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|SEVEN_SEG:dcd_7seg_2                                                                    ; SEVEN_SEG                             ; work         ;
+;    |SEVEN_SEG:dcd_7seg_3|                         ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|SEVEN_SEG:dcd_7seg_3                                                                    ; SEVEN_SEG                             ; work         ;
+;    |SEVEN_SEG:dcd_7seg_4|                         ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level_interruptions|SEVEN_SEG:dcd_7seg_4                                                                    ; SEVEN_SEG                             ; work         ;
++---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------+---------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2646  ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 28    ;
+; Number of registers using Asynchronous Clear ; 2610  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2608  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                           ;
++------------------------------------------------------------------------------+---------+
+; Inverted Register                                                            ; Fan out ;
++------------------------------------------------------------------------------+---------+
+; CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterBank:Registres|Banc[15][4] ; 2       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterBank:Registres|Banc[15][5] ; 2       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[49][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[21][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[17][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[53][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[50][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[22][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[18][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[54][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[48][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[20][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[16][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[52][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[51][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[23][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[19][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[55][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[60][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[30][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[28][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[62][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[57][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[27][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[25][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[59][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[56][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[26][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[24][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[58][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[61][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[31][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[29][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[63][4]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[52][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[38][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[36][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[54][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[49][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[35][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[33][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[51][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[48][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[34][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[32][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[50][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[53][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[39][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[37][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[55][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[58][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[43][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[42][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[59][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[60][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[45][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[44][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[61][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[56][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[41][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[40][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[57][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[62][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[47][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[46][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[63][5]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[41][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[35][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[33][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[43][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[45][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[39][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[37][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[47][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[19][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[27][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[21][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[29][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[17][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[25][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[23][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[31][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[9][0]     ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[5][0]     ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[1][0]     ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[13][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[11][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[7][0]     ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[3][0]     ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[15][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[57][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[53][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[49][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[61][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[55][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[59][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[51][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[63][0]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[50][1]    ; 1       ;
+; CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory|memory[22][1]    ; 1       ;
+; Total number of inverted registers = 194*                                    ;         ;
++------------------------------------------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; 3:1                ; 28 bits   ; 56 LEs        ; 56 LEs               ; 0 LEs                  ; Yes        ; |top_level_interruptions|CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI|PC[14]   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level_interruptions|CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI|PC[2]    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|UAL_32bits:UAL|Mux27         ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterBank:Registres|Mux54 ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterBank:Registres|Mux21 ;
+; 65:1               ; 7 bits    ; 301 LEs       ; 301 LEs              ; 0 LEs                  ; No         ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux2|S[4]        ;
+; 68:1               ; 25 bits   ; 1125 LEs      ; 1100 LEs             ; 25 LEs                 ; No         ; |top_level_interruptions|CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux2|S[27]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux1 ;
++----------------+-------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                           ;
++----------------+-------+--------------------------------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|SignExtender:extender ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux2 ;
++----------------+-------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                           ;
++----------------+-------+--------------------------------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPUInterruption:cpu|SignExtender:extender ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; n              ; 24    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "CPUInterruption:cpu|RegisterPSR:PSR" ;
++---------------+-------+----------+------------------------------+
+; Port          ; Type  ; Severity ; Details                      ;
++---------------+-------+----------+------------------------------+
+; datain[27..0] ; Input ; Info     ; Stuck at GND                 ;
++---------------+-------+----------+------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPUInterruption:cpu"                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; afficheur[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 33                          ;
+; cycloneiii_ff         ; 2646                        ;
+;     CLR               ; 6                           ;
+;     CLR SCLR SLD      ; 28                          ;
+;     ENA               ; 32                          ;
+;     ENA CLR           ; 2576                        ;
+;     SCLR              ; 2                           ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 2717                        ;
+;     arith             ; 94                          ;
+;         2 data inputs ; 32                          ;
+;         3 data inputs ; 62                          ;
+;     normal            ; 2623                        ;
+;         1 data inputs ; 199                         ;
+;         2 data inputs ; 59                          ;
+;         3 data inputs ; 77                          ;
+;         4 data inputs ; 2288                        ;
+;                       ;                             ;
+; Max LUT depth         ; 19.50                       ;
+; Average LUT depth     ; 10.55                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:10     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat Jun 15 19:39:06 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_interruption -c cpu_interruption
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/instruction_memory_interruptons.vhd
+    Info (12022): Found design unit 1: instruction_memory_IRQ-RTL File: C:/Users/souka/Desktop/projet_vhdl/src/instruction_memory_interruptons.vhd Line: 10
+    Info (12023): Found entity 1: instruction_memory_IRQ File: C:/Users/souka/Desktop/projet_vhdl/src/instruction_memory_interruptons.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/vic.vhd
+    Info (12022): Found design unit 1: VIC-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/vic.vhd Line: 17
+    Info (12023): Found entity 1: VIC File: C:/Users/souka/Desktop/projet_vhdl/src/vic.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/unite_de_traitement_b.vhd
+    Info (12022): Found design unit 1: UniteDeTraitement_b-struct File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement_b.vhd Line: 14
+    Info (12023): Found entity 1: UniteDeTraitement_b File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement_b.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/unite_de_traitement_a.vhd
+    Info (12022): Found design unit 1: UniteDeTraitement_a-struct File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement_a.vhd Line: 13
+    Info (12023): Found entity 1: UniteDeTraitement_a File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement_a.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/unite_de_traitement.vhd
+    Info (12022): Found design unit 1: UniteDeTraitement-struct File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 16
+    Info (12023): Found entity 1: UniteDeTraitement File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/unite_de_gestion_des_instructions_interruption.vhd
+    Info (12022): Found design unit 1: UniteGestionInstructionsInterruptions-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_gestion_des_instructions_interruption.vhd Line: 19
+    Info (12023): Found entity 1: UniteGestionInstructionsInterruptions File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_gestion_des_instructions_interruption.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/unite_de_gestion_des_instructions.vhd
+    Info (12022): Found design unit 1: UniteGestionInstructions-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_gestion_des_instructions.vhd Line: 14
+    Info (12023): Found entity 1: UniteGestionInstructions File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_gestion_des_instructions.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/ual_32bits.vhd
+    Info (12022): Found design unit 1: UAL_32bits-behavior File: C:/Users/souka/Desktop/projet_vhdl/src/ual_32bits.vhd Line: 14
+    Info (12023): Found entity 1: UAL_32bits File: C:/Users/souka/Desktop/projet_vhdl/src/ual_32bits.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/top_level_interruptions.vhd
+    Info (12022): Found design unit 1: top_level_interruptions-struct File: C:/Users/souka/Desktop/projet_vhdl/src/top_level_interruptions.vhd Line: 12
+    Info (12023): Found entity 1: top_level_interruptions File: C:/Users/souka/Desktop/projet_vhdl/src/top_level_interruptions.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/top_level.vhd
+    Info (12022): Found design unit 1: top_level-struct File: C:/Users/souka/Desktop/projet_vhdl/src/top_level.vhd Line: 12
+    Info (12023): Found entity 1: top_level File: C:/Users/souka/Desktop/projet_vhdl/src/top_level.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/sign_extender.vhd
+    Info (12022): Found design unit 1: SignExtender-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/sign_extender.vhd Line: 15
+    Info (12023): Found entity 1: SignExtender File: C:/Users/souka/Desktop/projet_vhdl/src/sign_extender.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/registre_psr.vhd
+    Info (12022): Found design unit 1: RegisterPSR-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/registre_PSR.vhd Line: 16
+    Info (12023): Found entity 1: RegisterPSR File: C:/Users/souka/Desktop/projet_vhdl/src/registre_PSR.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/register_bank.vhd
+    Info (12022): Found design unit 1: RegisterBank-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/register_bank.vhd Line: 14
+    Info (12023): Found entity 1: RegisterBank File: C:/Users/souka/Desktop/projet_vhdl/src/register_bank.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/mux2v1_gen.vhd
+    Info (12022): Found design unit 1: Multiplexer-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/mux2v1_gen.vhd Line: 16
+    Info (12023): Found entity 1: Multiplexer File: C:/Users/souka/Desktop/projet_vhdl/src/mux2v1_gen.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/instruction_memory.vhd
+    Info (12022): Found design unit 1: instruction_memory-RTL File: C:/Users/souka/Desktop/projet_vhdl/src/instruction_memory.vhd Line: 11
+    Info (12023): Found entity 1: instruction_memory File: C:/Users/souka/Desktop/projet_vhdl/src/instruction_memory.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/decodeur_interruption.vhd
+    Info (12022): Found design unit 1: DecoderInterruption-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_interruption.vhd Line: 22
+    Info (12023): Found entity 1: DecoderInterruption File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_interruption.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/decodeur_7seg.vhd
+    Info (12022): Found design unit 1: SEVEN_SEG-COMB File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_7seg.vhd Line: 39
+    Info (12023): Found entity 1: SEVEN_SEG File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_7seg.vhd Line: 31
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/decoder.vhd
+    Info (12022): Found design unit 1: Decoder-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/decoder.vhd Line: 21
+    Info (12023): Found entity 1: Decoder File: C:/Users/souka/Desktop/projet_vhdl/src/decoder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/data_memory.vhd
+    Info (12022): Found design unit 1: DataMemory-Behavioral File: C:/Users/souka/Desktop/projet_vhdl/src/data_memory.vhd Line: 16
+    Info (12023): Found entity 1: DataMemory File: C:/Users/souka/Desktop/projet_vhdl/src/data_memory.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/cpu_interruption.vhd
+    Info (12022): Found design unit 1: CPUInterruption-struct File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 12
+    Info (12023): Found entity 1: CPUInterruption File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/souka/desktop/projet_vhdl/src/cpu.vhd
+    Info (12022): Found design unit 1: CPU-struct File: C:/Users/souka/Desktop/projet_vhdl/src/cpu.vhd Line: 12
+    Info (12023): Found entity 1: CPU File: C:/Users/souka/Desktop/projet_vhdl/src/cpu.vhd Line: 5
+Info (12127): Elaborating entity "top_level_interruptions" for the top level hierarchy
+Critical Warning (10920): VHDL Incomplete Partial Association warning at top_level_interruptions.vhd(45): port or argument "Afficheur" has 16/32 unassociated elements File: C:/Users/souka/Desktop/projet_vhdl/src/top_level_interruptions.vhd Line: 45
+Info (12128): Elaborating entity "SEVEN_SEG" for hierarchy "SEVEN_SEG:dcd_7seg_1" File: C:/Users/souka/Desktop/projet_vhdl/src/top_level_interruptions.vhd Line: 17
+Warning (10492): VHDL Process Statement warning at decodeur_7seg.vhd(67): signal "Segout_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_7seg.vhd Line: 67
+Warning (10492): VHDL Process Statement warning at decodeur_7seg.vhd(69): signal "Segout_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_7seg.vhd Line: 69
+Info (12128): Elaborating entity "CPUInterruption" for hierarchy "CPUInterruption:cpu" File: C:/Users/souka/Desktop/projet_vhdl/src/top_level_interruptions.vhd Line: 45
+Info (12128): Elaborating entity "UniteDeTraitement" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT" File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 21
+Info (12128): Elaborating entity "Multiplexer" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 22
+Info (12128): Elaborating entity "RegisterBank" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterBank:Registres" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 31
+Info (12128): Elaborating entity "Multiplexer" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|Multiplexer:mux1" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 44
+Info (12128): Elaborating entity "SignExtender" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|SignExtender:extender" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 52
+Info (12128): Elaborating entity "UAL_32bits" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|UAL_32bits:UAL" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 58
+Info (12128): Elaborating entity "DataMemory" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|DataMemory:memory" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at data_memory.vhd(23): signal "Reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/souka/Desktop/projet_vhdl/src/data_memory.vhd Line: 23
+Info (12128): Elaborating entity "RegisterPSR" for hierarchy "CPUInterruption:cpu|UniteDeTraitement:UDT|RegisterPSR:RegAff_comp" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_traitement.vhd Line: 88
+Info (12128): Elaborating entity "DecoderInterruption" for hierarchy "CPUInterruption:cpu|DecoderInterruption:dcd" File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at decodeur_interruption.vhd(95): signal "psr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/souka/Desktop/projet_vhdl/src/decodeur_interruption.vhd Line: 95
+Info (12129): Elaborating entity "SignExtender" using architecture "A:behavioral" for hierarchy "CPUInterruption:cpu|SignExtender:extender" File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 60
+Info (12128): Elaborating entity "UniteGestionInstructionsInterruptions" for hierarchy "CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI" File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 67
+Info (12128): Elaborating entity "instruction_memory_IRQ" for hierarchy "CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI|instruction_memory_IRQ:IM" File: C:/Users/souka/Desktop/projet_vhdl/src/unite_de_gestion_des_instructions_interruption.vhd Line: 23
+Info (12128): Elaborating entity "VIC" for hierarchy "CPUInterruption:cpu|VIC:VIC" File: C:/Users/souka/Desktop/projet_vhdl/src/cpu_interruption.vhd Line: 80
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276013): RAM logic "CPUInterruption:cpu|UniteGestionInstructionsInterruptions:UGI|instruction_memory_IRQ:IM|mem" is uninferred because MIF is not supported for the selected family File: C:/Users/souka/Desktop/projet_vhdl/src/instruction_memory_interruptons.vhd Line: 69
+Info (13000): Registers with preset signals will power-up high File: C:/Users/souka/Desktop/projet_vhdl/src/register_bank.vhd Line: 31
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 5188 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 5155 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4872 megabytes
+    Info: Processing ended: Sat Jun 15 19:39:28 2024
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:17
+
+

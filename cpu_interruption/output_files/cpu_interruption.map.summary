@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sat Jun 15 19:39:28 2024
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : cpu_interruption
+Top-level Entity Name : top_level_interruptions
+Family : MAX 10
+Total logic elements : 5,059
+    Total combinational functions : 2,713
+    Dedicated logic registers : 2,646
+Total registers : 2646
+Total pins : 33
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
